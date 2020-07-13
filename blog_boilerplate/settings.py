@@ -27,10 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+SITE_ID=1
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.postgres',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'taggit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,8 +80,12 @@ WSGI_APPLICATION = 'blog_boilerplate.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
